@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 593294392}
   - component: {fileID: 593294391}
   - component: {fileID: 593294390}
+  - component: {fileID: 593294395}
   m_Layer: 0
   m_Name: TestRayCastHitting
   m_TagString: Enemy
@@ -386,6 +387,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &593294395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593294389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e18865ed5a82d408877ccda044767a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RayCastEnemy
+  raycastDistance: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  drawDebugRay: 1
+  playerTag: Player
 --- !u!1 &948696611
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,8 +924,8 @@ GameObject:
   - component: {fileID: 1893902187}
   - component: {fileID: 1893902191}
   - component: {fileID: 1893902193}
-  - component: {fileID: 1893902194}
   - component: {fileID: 1893902195}
+  - component: {fileID: 1893902196}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1050,24 +1069,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonCam
   mouseSensitivity: 2
---- !u!114 &1893902194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893902186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efbe7cff4c835a049b24e97eba6a6225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RayCastPlayer
-  raycastDistance: 10
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  drawDebugRay: 1
-  enemyTag: Enemy
 --- !u!114 &1893902195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,6 +1087,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   friction: 5
+--- !u!114 &1893902196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893902186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efbe7cff4c835a049b24e97eba6a6225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RayCastPlayer
+  raycastDistance: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  drawDebugRay: 1
+  enemyTag: Enemy
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
