@@ -15,15 +15,19 @@ public class FirstPersonCam : MonoBehaviour
 
     void Update()
     {
-        // Mouse look
+        // Mouse look - only use mouse input, not controller sticks
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
         
-        transform.Rotate(Vector3.up * mouseX);
-        
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        // Only rotate if there's actual mouse movement (filters out controller input)
+        if (Mathf.Abs(mouseX) > 0.01f || Mathf.Abs(mouseY) > 0.01f)
+        {
+            transform.Rotate(Vector3.up * mouseX);
+            
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        }
 
         // Unlock cursor
         if (Input.GetKeyDown(KeyCode.Escape))

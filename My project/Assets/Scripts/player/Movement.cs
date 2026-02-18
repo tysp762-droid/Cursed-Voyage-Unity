@@ -5,6 +5,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float friction = 5f;
     
     private Rigidbody rb;
     private Vector3 moveInput;
@@ -12,6 +13,7 @@ public class Movement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        rb.linearDamping = friction;
     }
 
     void Update()
@@ -38,6 +40,6 @@ public class Movement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, Vector3.down, 0.2f, groundLayer);
+        return Physics.Raycast(transform.position - Vector3.up * 0.5f, Vector3.down, 0.6f, groundLayer);
     }
 }

@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 593294390}
   m_Layer: 0
   m_Name: TestRayCastHitting
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 1275980449}
   m_Layer: 3
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -904,12 +904,12 @@ GameObject:
   - component: {fileID: 1893902188}
   - component: {fileID: 1893902187}
   - component: {fileID: 1893902191}
-  - component: {fileID: 1893902192}
   - component: {fileID: 1893902193}
   - component: {fileID: 1893902194}
-  m_Layer: 0
+  - component: {fileID: 1893902195}
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1037,23 +1037,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1893902192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893902186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb355c887dfc184d95740dbfec7114c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RayCast
-  cam: {fileID: 1511340335}
-  maxDistance: 100
-  hitLayers:
-    serializedVersion: 2
-    m_Bits: 1
 --- !u!114 &1893902193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,6 +1059,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1893902186}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efbe7cff4c835a049b24e97eba6a6225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RayCastPlayer
+  raycastDistance: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  drawDebugRay: 1
+  enemyTag: Enemy
+--- !u!114 &1893902195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893902186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74a430c3af00ade4083d7eabdb485efb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
@@ -1084,6 +1085,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  friction: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
