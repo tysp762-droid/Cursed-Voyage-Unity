@@ -2,69 +2,42 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [Header("Movement")]
-    public float moveSpeed = 5f;
-    public float jumpForce = 6f;
-    public float gravityMultiplier = 2f;
-
-    [Header("Ground Check")]
-    public Transform groundCheck; // optional - position to cast down from
-    public float groundCheckDistance = 0.15f;
-    public LayerMask groundMask = ~0;
-
-    Rigidbody rb;
-    Vector3 moveInput;
-    bool jumpRequested;
-    bool isGrounded;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private LayerMask groundLayer;
+    
+    private Rigidbody rb;
+    private Vector3 moveInput;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        if (rb == null)
-        {
-            rb = gameObject.AddComponent<Rigidbody>();
-        }
-        rb.interpolation = RigidbodyInterpolation.Interpolate;
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     void Update()
     {
-        // Read player input (frame-based)
+        // Get WASD input
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        moveInput = (transform.right * h + transform.forward * v);
+        moveInput = (transform.right * h + transform.forward * v).normalized;
 
-        if (Input.GetButtonDown("Jump"))
+        // Jump
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            jumpRequested = true;
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
     }
 
     void FixedUpdate()
     {
-        // Ground check
-        Vector3 origin = groundCheck != null ? groundCheck.position : transform.position;
-        isGrounded = Physics.Raycast(origin, Vector3.down, groundCheckDistance + 0.01f, groundMask);
+        // Apply movement
+        Vector3 newVel = moveInput * moveSpeed;
+        rb.linearVelocity = new Vector3(newVel.x, rb.linearVelocity.y, newVel.z);
+    }
 
-        // Horizontal movement (preserve current vertical velocity)
-        Vector3 desiredVel = moveInput.normalized * moveSpeed;
-        Vector3 currentVel = rb.linearVelocity;
-        Vector3 newVel = new Vector3(desiredVel.x, currentVel.y, desiredVel.z);
-        rb.linearVelocity = newVel;
-
-        // Jump
-        if (jumpRequested && isGrounded)
-        {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z); // reset vertical
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
-        }
-        jumpRequested = false;
-
-        // Apply extra gravity for snappier jump/fall
-        if (!isGrounded)
-        {
-            rb.AddForce(Physics.gravity * (gravityMultiplier - 1f), ForceMode.Acceleration);
-        }
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, 0.2f, groundLayer);
     }
 }
