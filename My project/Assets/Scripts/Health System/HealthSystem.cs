@@ -35,7 +35,7 @@ public class HealthSystem : MonoBehaviour
     private void Die()
     {
         OnDeath?.Invoke();
-        Destroy(gameObject); // Remove the object when dead
+        // Removed Destroy(gameObject) to allow custom death handling
     }
 
     public float GetHealth() => currentHealth;

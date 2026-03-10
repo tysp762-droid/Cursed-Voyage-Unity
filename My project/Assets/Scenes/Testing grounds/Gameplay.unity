@@ -666,6 +666,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3765380613113800358, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3765380613113800358, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: 44ffe586cd7f7b441a97d7fa5e82440a, type: 3}
+    - target: {fileID: 3765380613113800358, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -721,7 +733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4747584360732414785, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
       propertyPath: damageAmount
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7375421260128270294, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
       propertyPath: m_Name

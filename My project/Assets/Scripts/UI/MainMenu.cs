@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     private void OnStartButtonClicked()
     {
-        nextSceneManager.LoadScene("Gameplay");
+        nextSceneManager.LoadScene("IslandScene");
     }
 
     private void OnQuitButtonClicked()
