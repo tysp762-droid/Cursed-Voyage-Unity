@@ -376,8 +376,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.113937266, y: -0.36811796, z: 0.045510113, w: 0.92164874}
+  m_LocalPosition: {x: 320.89694, y: 12.058438, z: 29.140282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -394,9 +394,9 @@ GameObject:
   - component: {fileID: 1476724166}
   - component: {fileID: 1476724165}
   - component: {fileID: 1476724164}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
