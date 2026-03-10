@@ -11,7 +11,11 @@ public class YapManeger : MonoBehaviour
         "I ain't got much time...",
         "The ship... she is gone...",
         "To pieces... but there  is hope...",
-        "Cough... groan..."
+        "Cough... groan...",
+        "you have to survive...",
+        "now find some weapons... and fight for your life...",
+        "I wish I could help you more... but I am too weak...",  
+
     };
 
     private int currentLine = 0;
