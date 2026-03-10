@@ -3,6 +3,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float sprintSpeedMultiplier = 2f;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float friction = 5f;
@@ -33,8 +34,15 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Calculate current movement speed based on sprint
+        float currentSpeed = moveSpeed;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            currentSpeed *= sprintSpeedMultiplier;
+        }
+
         // Apply movement
-        Vector3 newVel = moveInput * moveSpeed;
+        Vector3 newVel = moveInput * currentSpeed;
         rb.linearVelocity = new Vector3(newVel.x, rb.linearVelocity.y, newVel.z);
     }
 
