@@ -4,7 +4,8 @@ public class YapManeger : MonoBehaviour
 {
     [SerializeField] private SpeechTest speechBubble; // Verwijzing naar jouw SpeechTest script
 
-    private string[] dialogueLines = {
+    private string[] dialogueLines = 
+    {
         "Arr... ye found me...",
         "Good... good...",
         "Listen close, matey...",
