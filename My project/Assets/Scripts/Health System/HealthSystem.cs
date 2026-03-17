@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float maxHealth = 100f; // Enemy HP amount
     private float currentHealth;
 
     // Events for other systems to respond to

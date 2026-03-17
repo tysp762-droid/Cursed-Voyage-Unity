@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     private void OnStartButtonClicked()
     {
-        nextSceneManager.LoadScene("IslandScene");
+        nextSceneManager.LoadScene("TalkTestScene");
     }
 
     private void OnQuitButtonClicked()

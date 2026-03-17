@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class YapManeger : MonoBehaviour
 {
     [SerializeField] private SpeechTest speechBubble; // Verwijzing naar jouw SpeechTest script
+    [SerializeField] private string nextSceneName; // Name of the scene to load after dialogue
 
     private string[] dialogueLines = 
     {
@@ -43,8 +45,18 @@ public class YapManeger : MonoBehaviour
         }
         else
         {
-            speechBubble.SetText(""); // Verberg tekstwolk als dialoog klaar is
+            // Dialogue ended, load the next scene
+            LoadScene(nextSceneName);
         }
+    }
+
+        /// <summary>
+    /// Loads the next scene by name
+    /// </summary>
+    /// <param name="sceneName">The name of the scene to load</param>
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
 
