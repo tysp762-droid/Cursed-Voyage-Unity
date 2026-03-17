@@ -43,7 +43,11 @@ public class Inventory : MonoBehaviour
             container.SetActive(!container.activeInHierarchy);
             Cursor.lockState = Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.None : CursorLockMode.Locked;
             Cursor.visible = !Cursor.visible;
+            PlayerCam.instance.updatingRotation = !PlayerCam.instance.updatingRotation;
         }
+
+        DetectLookedAtItem();
+        Pickup();
 
         StartDrag();
         UpdateDragItemPosition();
@@ -197,11 +201,37 @@ public class Inventory : MonoBehaviour
             if(lookedAtRenderer != null && Input.GetKeyDown(KeyCode.E))
             {
                 Item item = lookedAtRenderer.GetComponent<Item>();
-                if(item = null)
+                if(item != null)
                 {
                     AddItem(item.item, item.amount);
                     Destroy(item.gameObject);
                 }
             }
+    }
+
+    private void DetectLookedAtItem()
+    {
+        if(lookedAtRenderer != null)
+        {
+            lookedAtRenderer.material = originalMaterial;
+            lookedAtRenderer = null;
+            originalMaterial = null;
+        }
+
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        if(Physics.Raycast(ray, out RaycastHit hit, pickupRange))
+        {
+            Item item = hit.collider.GetComponent<Item>();
+            if(item != null)
+            {
+                Renderer rend = item.GetComponent<Renderer>();
+                if(rend != null)
+                {
+                    originalMaterial = rend.material;
+                    rend.material = highlightMaterial;
+                    lookedAtRenderer = rend;
+                }
+            }
+        }
     }
 }
