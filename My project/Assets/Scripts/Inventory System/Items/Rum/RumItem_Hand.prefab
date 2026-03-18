@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2966378335280779653}
-  - component: {fileID: 4138271764041768610}
   - component: {fileID: 1396128587231932189}
   m_Layer: 0
   m_Name: RumItem_Hand
@@ -35,14 +34,6 @@ Transform:
   - {fileID: 436998353534729106}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4138271764041768610
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024176238454910005}
-  m_Mesh: {fileID: -462981019419857548, guid: 5b66d3d5894b94e4b91f239bc01eaf7b, type: 3}
 --- !u!23 &1396128587231932189
 MeshRenderer:
   m_ObjectHideFlags: 0

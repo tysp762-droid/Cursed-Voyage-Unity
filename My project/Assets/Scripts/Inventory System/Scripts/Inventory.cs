@@ -5,10 +5,6 @@ using TMPro;
 
 public class Inventory : MonoBehaviour
 {
-    public ItemsS0 rumItem;
-    public ItemsS0 axeItem;
-    public ItemsS0 shotgunItem;
-
     public GameObject hotbarObj;
     public GameObject inventorySlotParent;
     public GameObject container;
