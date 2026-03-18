@@ -7,7 +7,7 @@ public class HealthSystem : MonoBehaviour
     private float currentHealth;
 
     // Events for other systems to respond to
-    public UnityEvent<float> OnHealthChanged; // Passes current health
+    public UnityEvent<float> OnHealthChanged; // Passes health percentage (0-100)
     public UnityEvent OnDeath;
 
     void Awake()
@@ -18,7 +18,9 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        OnHealthChanged?.Invoke(currentHealth);
+        float percentage = GetHealthPercentage();
+        Debug.Log("HealthSystem: Taking damage, new health: " + currentHealth + ", percentage: " + percentage);
+        OnHealthChanged?.Invoke(percentage);
 
         if (currentHealth <= 0)
         {
@@ -29,7 +31,9 @@ public class HealthSystem : MonoBehaviour
     public void Heal(float amount)
     {
         currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
-        OnHealthChanged?.Invoke(currentHealth);
+        float percentage = GetHealthPercentage();
+        Debug.Log("HealthSystem: Healing, new health: " + currentHealth + ", percentage: " + percentage);
+        OnHealthChanged?.Invoke(percentage);
     }
 
     private void Die()
@@ -38,6 +42,8 @@ public class HealthSystem : MonoBehaviour
         // Removed Destroy(gameObject) to allow custom death handling
     }
 
-    public float GetHealth() => currentHealth;
-    public float GetMaxHealth() => maxHealth;
+    public float GetHealthPercentage()
+    {
+        return (currentHealth / maxHealth) * 100f;
+    }
 }
