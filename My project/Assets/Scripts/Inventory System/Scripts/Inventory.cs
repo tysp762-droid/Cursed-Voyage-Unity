@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
     public ItemsS0 rumItem;
     public ItemsS0 axeItem;
+    public ItemsS0 shotgunItem;
 
     public GameObject hotbarObj;
     public GameObject inventorySlotParent;
@@ -18,6 +20,17 @@ public class Inventory : MonoBehaviour
     public Material highlightMaterial;
     private Material originalMaterial;
     private Renderer lookedAtRenderer = null;
+
+    private int equippedHotbarIndex = 0; //0-3 for 4 hotbar slots
+    public float equippedOpacity = 0.9f;
+    public float normalOpacity = 0.58f;
+    public Transform hand;
+    private GameObject currentHandItem;
+
+    public GameObject itemDescriptionParent;
+    public Image itemDescriptionImage;
+    public TextMeshProUGUI descriptionItemNameTxt;
+    public TextMeshProUGUI itemDescriptionTxt;
 
     private List<Slot> inventorySlots = new List<Slot>();
     private List<Slot> hotbarSlots = new List<Slot>();
@@ -52,6 +65,12 @@ public class Inventory : MonoBehaviour
         StartDrag();
         UpdateDragItemPosition();
         EndDrag();
+
+        HandleHotBarSelection();
+        HandleDropEquippedItem();
+        UpdateHotbarOpacity();
+
+        UpdateItemDescription();
     }
 
     public void AddItem(ItemsS0 itemToAdd, int amount)
@@ -205,6 +224,7 @@ public class Inventory : MonoBehaviour
                 {
                     AddItem(item.item, item.amount);
                     Destroy(item.gameObject);
+                    EquipHandItem();
                 }
             }
     }
@@ -233,5 +253,89 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void UpdateHotbarOpacity()
+    {
+        for(int i = 0; i < hotbarSlots.Count; i++)
+        {
+            Image icon = hotbarSlots[i].GetComponent<Image>();
+            if(icon != null)
+            {
+                icon.color = (i == equippedHotbarIndex) ? new Color(1, 1, 1, equippedOpacity) : new Color(1, 1, 1, normalOpacity);
+            }
+        }
+    }
+
+    private void HandleHotBarSelection()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            if(Input.GetKeyDown((i + 1).ToString()))
+            {
+                equippedHotbarIndex = i;
+                UpdateHotbarOpacity();
+                EquipHandItem();
+            }
+        }
+    }
+
+    private void HandleDropEquippedItem()
+    {
+        if(!Input.GetKeyDown(KeyCode.Q)) return;
+
+        Slot equippedSlot = hotbarSlots[equippedHotbarIndex];
+
+        if(!equippedSlot.HasItem()) return;
+
+        ItemsS0 itemsS0 = equippedSlot.GetItem();
+        GameObject prefab = itemsS0.itemPrefab;
+
+        if(prefab == null) return;
+
+        GameObject dropped = Instantiate(prefab, Camera.main.transform.position + Camera.main.transform.forward, Quaternion.identity);
+
+        Item item = dropped.GetComponent<Item>();
+        item.item = itemsS0;
+        item.amount = equippedSlot.GetAmount();
+
+        equippedSlot.ClearSlot();
+
+        EquipHandItem();
+    }
+
+    private void EquipHandItem()
+    {
+        if(currentHandItem != null) Destroy(currentHandItem);
+
+        Slot equippedSlot = hotbarSlots[equippedHotbarIndex];
+        if(!equippedSlot.HasItem()) return;
+
+        ItemsS0 item = equippedSlot.GetItem();
+        if (item.handItemPrefab == null) return;
+
+        currentHandItem = Instantiate(item.handItemPrefab, hand);
+        currentHandItem.transform.localPosition = Vector3.zero;
+        currentHandItem.transform.localRotation = Quaternion.identity;
+    }
+
+    private void UpdateItemDescription()
+    {
+        Slot hoveredSlot = GetHoveredSlot();
+
+        if(hoveredSlot != null)
+        {
+            ItemsS0 hoveredItem = hoveredSlot.GetItem();
+
+            if(hoveredItem != null)
+            {
+                itemDescriptionParent.SetActive(true);
+                itemDescriptionImage.sprite = hoveredItem.icon;
+                itemDescriptionTxt.text = hoveredItem.description;
+                descriptionItemNameTxt.text = hoveredItem.name;
+                return;
+            }
+        }
+        itemDescriptionParent.SetActive(false);
     }
 }
