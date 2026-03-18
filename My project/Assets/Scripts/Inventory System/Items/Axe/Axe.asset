@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Axe
   icon: {fileID: 21300000, guid: fac0603e82a493c43a3e44c2a1d49838, type: 3}
   maxStackSize: 1
-  itemPrefab: {fileID: 1308055464502397780, guid: bb36bd2b998cbdc42b3b67de3806f805, type: 3}
-  handItemPrefab: {fileID: 2678102020629961088, guid: 39065a69728f47b47a3b23d16e0dc8dc, type: 3}
+  itemPrefab: {fileID: 1807472408367772582, guid: 312213b20d5bf4c4085a14f0d5a73ec2, type: 3}
+  handItemPrefab: {fileID: 8270968888616389916, guid: ab912051b4d59e14282bc42a9b1ce5d0, type: 3}
   description: A close range weapon
