@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 3719758958781324959}
   - component: {fileID: 1764249078514532441}
   - component: {fileID: 960913816080672328}
-  - component: {fileID: 8806975334046049157}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -244,30 +243,6 @@ MonoBehaviour:
   damageAmount: 100
   particlePrefab1: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
   particlePrefab2: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
---- !u!114 &8806975334046049157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4954312286211866183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37c3be80af07ef54ab52c1670f897274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 10
-  groundDrag: 10
-  runningSpeed: 20
-  jumpForce: 10
-  jumpCooldown: 1
-  airMultiplier: 2
-  groundedCheckOffset: 10
-  playerHeight: 2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  Orientation: {fileID: 7198719339253535313}
 --- !u!1 &6458351307990533091
 GameObject:
   m_ObjectHideFlags: 0
