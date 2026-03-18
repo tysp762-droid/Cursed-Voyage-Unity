@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39b063e6276f1c64b87b83a18b799521, type: 3}
-  m_Name: Shotgun
+  m_Name: Flintlock
   m_EditorClassIdentifier: Assembly-CSharp::ItemsS0
-  itemName: Shotgun
-  icon: {fileID: 21300000, guid: 81e91aff3c0c2d147b464f194ec37fc0, type: 3}
+  itemName: Flintlock
+  icon: {fileID: 21300000, guid: c661f48476e942b46944a28291991870, type: 3}
   maxStackSize: 1
-  itemPrefab: {fileID: 8028901618148985502, guid: ea381ce807c8b16489f35545048c0af5, type: 3}
-  handItemPrefab: {fileID: 487536768377501877, guid: 2f124d9200bfabd409fa95364e5aa483, type: 3}
-  description: A gun
+  itemPrefab: {fileID: 7140681209801361811, guid: a5cc0b09407d92f489bead803054b163, type: 3}
+  handItemPrefab: {fileID: 2692732594789205848, guid: fc00ad85890fdd74498e23a3b0c7355c, type: 3}
+  description: A Flintlock
