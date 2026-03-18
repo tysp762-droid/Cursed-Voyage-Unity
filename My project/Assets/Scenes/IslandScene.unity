@@ -8568,7 +8568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960913816080672328, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: raycastDistance
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1380379998540338484, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: m_LocalPosition.x
