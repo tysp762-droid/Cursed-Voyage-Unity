@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Cutlass
   icon: {fileID: 21300000, guid: aa0e2455503e39d499e4dc3f43b61116, type: 3}
   maxStackSize: 1
-  itemPrefab: {fileID: 2226074477265176959, guid: 39c696fd7542e914894b398d4b04c8c6, type: 3}
-  handItemPrefab: {fileID: 1954376454521097917, guid: 6a442718863b812449958d4406831941, type: 3}
+  itemPrefab: {fileID: 5686234289374977804, guid: 39c696fd7542e914894b398d4b04c8c6, type: 3}
+  handItemPrefab: {fileID: 3251512768906520674, guid: 6a442718863b812449958d4406831941, type: 3}
   description: A pirate sword

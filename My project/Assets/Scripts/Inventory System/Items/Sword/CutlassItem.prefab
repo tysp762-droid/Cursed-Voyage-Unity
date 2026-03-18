@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2226074477265176959
+--- !u!1 &5686234289374977804
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3260244796587410632}
-  - component: {fileID: 5720041596722916516}
-  - component: {fileID: 7637112769783000746}
-  - component: {fileID: 2429796843146359658}
-  - component: {fileID: 7051963601561502111}
-  - component: {fileID: 3946240833988488813}
+  - component: {fileID: 988654047315284342}
+  - component: {fileID: 3309694220246474965}
+  - component: {fileID: 6214510922958268946}
+  - component: {fileID: 8190946023521464874}
+  - component: {fileID: 8032279699529032403}
+  - component: {fileID: 7102025665764457646}
   m_Layer: 0
   m_Name: CutlassItem
   m_TagString: Untagged
@@ -21,36 +21,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3260244796587410632
+--- !u!4 &988654047315284342
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2226074477265176959}
+  m_GameObject: {fileID: 5686234289374977804}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.113120034, y: 0.6979999, z: 0.113120034, w: 0.6979999}
-  m_LocalPosition: {x: -2.23, y: 2.32, z: 4.288867}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.845, y: 2.49, z: 4.806424}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 18.411}
---- !u!33 &5720041596722916516
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3309694220246474965
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2226074477265176959}
-  m_Mesh: {fileID: 2534964839176971238, guid: 8c0d2b50acbd71e4dbdb9f5283463146, type: 3}
---- !u!23 &7637112769783000746
+  m_GameObject: {fileID: 5686234289374977804}
+  m_Mesh: {fileID: 2534964839176971238, guid: 913374246fcc9cf4b8810f5d5d67e691, type: 3}
+--- !u!23 &6214510922958268946
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2226074477265176959}
+  m_GameObject: {fileID: 5686234289374977804}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -93,13 +93,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &2429796843146359658
+--- !u!114 &8190946023521464874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686234289374977804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05eddd13dc1d09f45b1070e9bd7aeb62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  item: {fileID: 11400000, guid: 931372ead7629204e87b95197b59501b, type: 2}
+  amount: 1
+--- !u!54 &8032279699529032403
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2226074477265176959}
+  m_GameObject: {fileID: 5686234289374977804}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -120,13 +134,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7051963601561502111
+--- !u!65 &7102025665764457646
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2226074477265176959}
+  m_GameObject: {fileID: 5686234289374977804}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -139,19 +153,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3295031, y: 1.300001, z: 0.04182367}
-  m_Center: {x: 0.02661917, y: 0.53698057, z: -0.0000000027939677}
---- !u!114 &3946240833988488813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2226074477265176959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05eddd13dc1d09f45b1070e9bd7aeb62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Item
-  item: {fileID: 0}
-  amount: 1
+  m_Size: {x: 0.04182367, y: 1.300663, z: 0.35430422}
+  m_Center: {x: -0.000000006519258, y: 0.53435016, z: 0.11518069}
