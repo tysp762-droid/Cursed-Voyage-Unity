@@ -1,98 +1,128 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class WaveController : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy; // The enemy prefab to spawn
-    [SerializeField] private float timeBetweenWaves = 5f; // Time between waves in seconds
-    [SerializeField] private int enemiesPerWave = 3; // Number of enemies to spawn per wave
-    [SerializeField] private Transform spawnPoint; // Where to spawn enemies
-    [SerializeField] private float spawnSearchRadius = 10f; // Radius to search for valid NavMesh position
+    [Header("Prefabs")]
+    [Tooltip("Sleep hier meerdere enemy prefabs in.")]
+    [SerializeField] private GameObject[] enemyPrefabs;
 
-    private float nextWaveTime;
+    [Header("Wave settings")]
+    [Min(0f)]
+    [SerializeField] private float timeBetweenWaves = 5f;
 
-    void Start()
+    [Min(1)]
+    [SerializeField] private int enemiesPerWave = 3;
+
+    [Header("Spawn location")]
+    [Tooltip("Laat leeg om de positie van dit GameObject te gebruiken.")]
+    [SerializeField] private Transform spawnPoint;
+
+    [Header("NavMesh (optioneel)")]
+    [SerializeField] private bool useNavMesh = true;
+
+    [Min(0f)]
+    [SerializeField] private float navMeshSearchRadius = 10f;
+
+    [Header("Debug")]
+    [SerializeField] private bool logSpawns = false;
+
+    private Coroutine waveRoutine;
+
+    private void OnEnable()
     {
-        Debug.Log("WaveController Start - spawnPoint: " + spawnPoint + ", enemyPrefab: " + enemyPrefab);
-        nextWaveTime = Time.time + timeBetweenWaves;
+        StartWaves();
     }
 
-    void Update()
+    private void OnDisable()
     {
-        if (Time.time >= nextWaveTime)
+        StopWaves();
+    }
+
+    public void StartWaves()
+    {
+        if (waveRoutine != null) return;
+        waveRoutine = StartCoroutine(WaveLoop());
+    }
+
+    public void StopWaves()
+    {
+        if (waveRoutine == null) return;
+        StopCoroutine(waveRoutine);
+        waveRoutine = null;
+    }
+
+    private IEnumerator WaveLoop()
+    {
+        yield return null; // kleine delay voor setup
+
+        if (enemyPrefabs == null || enemyPrefabs.Length == 0)
+        {
+            Debug.LogError($"{nameof(WaveController)}: Geen enemy prefabs toegewezen. Sleep minstens één prefab in 'Prefabs'.", this);
+            waveRoutine = null;
+            yield break;
+        }
+
+        while (enabled && gameObject.activeInHierarchy)
         {
             SpawnWave();
-            nextWaveTime = Time.time + timeBetweenWaves;
+
+            if (timeBetweenWaves <= 0f)
+            {
+                yield return null; // voorkom tight loop
+            }
+            else
+            {
+                yield return new WaitForSeconds(timeBetweenWaves);
+            }
         }
+
+        waveRoutine = null;
     }
 
     private void SpawnWave()
     {
-        Debug.Log("SpawnWave called!");
+        Transform actualSpawnPoint = spawnPoint != null ? spawnPoint : transform;
+        Vector3 basePos = actualSpawnPoint.position;
+        Quaternion rot = actualSpawnPoint.rotation;
+
         for (int i = 0; i < enemiesPerWave; i++)
         {
-            if (spawnPoint != null && enemy != null)
+            Vector3 spawnPos = basePos;
+
+            if (useNavMesh)
             {
-                // Find a valid position on the NavMesh near the spawn point
-                Vector3 spawnPosition = spawnPoint.position;
-                if (NavMesh.SamplePosition(spawnPosition, out NavMeshHit hit, spawnSearchRadius, NavMesh.AllAreas))
+                if (NavMesh.SamplePosition(basePos, out NavMeshHit hit, navMeshSearchRadius, NavMesh.AllAreas))
                 {
-                    GameObject enemy = Instantiate(enemy, hit.position, spawnPoint.rotation);
-                    Debug.Log("Enemy spawned at " + hit.position);
-                    Debug.Log("Enemy name: " + enemy.name + ", Active: " + enemy.activeInHierarchy);
-                    
-                    // Check if it has a renderer
-                    Renderer renderer = enemy.GetComponent<Renderer>();
-                    if (renderer != null)
-                    {
-                        Debug.Log("Renderer found, enabled: " + renderer.enabled);
-                    }
-                    else
-                    {
-                        Debug.LogWarning("No Renderer component found on spawned enemy!");
-                    }
-                    
-                    // Check if it has ChasePlayer script
-                    ChasePlayer chaseScript = enemy.GetComponent<ChasePlayer>();
-                    if (chaseScript != null)
-                    {
-                        Debug.Log("ChasePlayer script found on enemy");
-                    }
-                    else
-                    {
-                        Debug.LogWarning("No ChasePlayer script found on spawned enemy!");
-                    }
-                    
-                    // Wait a frame for NavMesh to initialize
-                    StartCoroutine(DelayNavMeshSetup(enemy));
+                    spawnPos = hit.position;
                 }
                 else
                 {
-                    Debug.LogError("NavMesh.SamplePosition failed! No valid NavMesh position found near " + spawnPosition);
+                    Debug.LogWarning($"{nameof(WaveController)}: Geen NavMesh positie gevonden binnen radius {navMeshSearchRadius}. Spawnt op base positie.", this);
+                    spawnPos = basePos;
                 }
             }
-            else
+
+            // Kies willekeurig een prefab uit de array
+            GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+
+            GameObject spawnedEnemy = Instantiate(prefabToSpawn, spawnPos, rot);
+
+            if (logSpawns)
             {
-                Debug.LogError("spawnPoint or enemyPrefab is not assigned!");
+                Debug.Log($"[WaveController] Spawned: {spawnedEnemy.name} @ {spawnPos}", spawnedEnemy);
             }
         }
     }
 
-    private System.Collections.IEnumerator DelayNavMeshSetup(GameObject Enemy)
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
     {
-        yield return null; // Wait one frame
-        if (enemy != null)
-        {
-            Debug.Log("After delay - Enemy still exists, active: " + enemy.activeInHierarchy);
-            Renderer renderer = enemy.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                Debug.Log("Renderer still enabled: " + renderer.enabled);
-            }
-        }
-        else
-        {
-            Debug.LogError("Enemy was destroyed or is null after delay!");
-        }
+        Transform actualSpawnPoint = spawnPoint != null ? spawnPoint : transform;
+        Gizmos.color = new Color(0.2f, 0.8f, 1f, 0.9f);
+        Gizmos.DrawWireSphere(actualSpawnPoint.position, useNavMesh ? navMeshSearchRadius : 0.25f);
     }
+#endif
 }
+
