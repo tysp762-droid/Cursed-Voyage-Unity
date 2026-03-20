@@ -5,7 +5,7 @@ public class ChasePlayer : MonoBehaviour
 {
     public Transform player;
     private NavMeshAgent agent;
-    private bool shouldChase = false;
+    private bool shouldChase = true;
 
     void Start()
     {
@@ -14,7 +14,7 @@ public class ChasePlayer : MonoBehaviour
 
     void Update()
     {
-       
+        if (shouldChase && player != null && agent != null && agent.isOnNavMesh && agent.enabled)
         {
             agent.SetDestination(player.position);
         }
