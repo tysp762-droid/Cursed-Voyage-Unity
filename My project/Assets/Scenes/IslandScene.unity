@@ -670,7 +670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5741121555890646109, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
       propertyPath: m_Speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5741121555890646109, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
       propertyPath: m_Acceleration
@@ -683,7 +683,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7375421260128270294, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 798631851}
   m_SourcePrefab: {fileID: 100100000, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
 --- !u!1 &778605251
 GameObject:
@@ -764,6 +767,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &780061182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4954312286211866183, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+  m_PrefabInstance: {fileID: 1977912796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &780061192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780061182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef27f7df25598e04baaa0e37d737cc61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireDmg
+  fireParticlePrefab: {fileID: 2141138361418807436, guid: 1d3f8a02e845cd245868a0e9732db616, type: 3}
+  damagePerSecond: 10
 --- !u!1001 &787722399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -831,6 +853,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3141409187201156123, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
   m_PrefabInstance: {fileID: 695470646}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &798631851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798631841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef27f7df25598e04baaa0e37d737cc61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireDmg
+  fireParticlePrefab: {fileID: 2141138361418807436, guid: 1d3f8a02e845cd245868a0e9732db616, type: 3}
+  damagePerSecond: 80
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,6 +1238,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3141409187201156123, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
   m_PrefabInstance: {fileID: 1281090415}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1059244939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059244921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef27f7df25598e04baaa0e37d737cc61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireDmg
+  fireParticlePrefab: {fileID: 2141138361418807436, guid: 1d3f8a02e845cd245868a0e9732db616, type: 3}
+  damagePerSecond: 100
 --- !u!1 &1072028636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,7 +1467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4697547058189554815, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
       propertyPath: maxHealth
-      value: 110
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4747584360732414785, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
       propertyPath: damageAmount
@@ -1446,13 +1496,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7375421260128270294, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1059244939}
   m_SourcePrefab: {fileID: 100100000, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
 --- !u!4 &1380868568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3141409187201156123, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
   m_PrefabInstance: {fileID: 1917521333}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1380868577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660111199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef27f7df25598e04baaa0e37d737cc61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireDmg
+  fireParticlePrefab: {fileID: 2141138361418807436, guid: 1d3f8a02e845cd245868a0e9732db616, type: 3}
+  damagePerSecond: 70
 --- !u!1001 &1441565127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2437,7 +2504,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7375421260128270294, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1380868577}
   m_SourcePrefab: {fileID: 100100000, guid: f38ffe59d6b8b964984e6a6106d79ecd, type: 3}
 --- !u!4 &1952131420 stripped
 Transform:
@@ -2547,7 +2617,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4954312286211866183, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 780061192}
   m_SourcePrefab: {fileID: 100100000, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
 --- !u!1001 &1988891608
 PrefabInstance:
