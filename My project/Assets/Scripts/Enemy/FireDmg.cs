@@ -31,8 +31,7 @@ public class FireDmg : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check of het object waarmee we botsen hetzelfde prefab is als fireParticlePrefab
-        if (fireParticlePrefab != null && other.gameObject == fireParticlePrefab)
+        if (fireParticlePrefab != null && IsInstanceOfPrefab(other.gameObject, fireParticlePrefab))
         {
             isInFire = true;
         }
@@ -40,9 +39,17 @@ public class FireDmg : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (fireParticlePrefab != null && other.gameObject == fireParticlePrefab)
+        if (fireParticlePrefab != null && IsInstanceOfPrefab(other.gameObject, fireParticlePrefab))
         {
             isInFire = false;
         }
+    }
+
+    // Helper functie om te checken of een object een instantie is van een prefab
+    private bool IsInstanceOfPrefab(GameObject instance, GameObject prefab)
+    {
+        // Vergelijk de naam van het prefab met de naam van het object zonder (Clone)
+        string instanceName = instance.name.Replace("(Clone)", "").Trim();
+        return instanceName == prefab.name;
     }
 }
