@@ -17,7 +17,9 @@ public class YapManeger : MonoBehaviour
         "Cough... groan...",
         "you have to survive...",
         "now find some weapons... and fight for your life...",
-        "I wish I could help you more... but I am too weak...",  
+        "I wish I could help you more... but I am too weak...",
+        "Fuck you matey",
+        " *dies of cringe thinking about you*",  
 
     };
 
