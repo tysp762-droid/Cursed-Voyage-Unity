@@ -325,23 +325,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!1 &964309351 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 698816282070781087, guid: 0771decb7d13a8640b08cb0e574c9b09, type: 3}
-  m_PrefabInstance: {fileID: 7541685880578412724}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &964309357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964309351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08c485aeaf2932649aec51d1b0bee9dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Shiftlock
 --- !u!114 &1165730678 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2067804089166901427, guid: 6cfb1eb6263c54849b1e662bd672abf5, type: 3}
@@ -714,14 +697,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5902399565885845433, guid: 0771decb7d13a8640b08cb0e574c9b09, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 698816282070781087, guid: 0771decb7d13a8640b08cb0e574c9b09, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 964309357}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0771decb7d13a8640b08cb0e574c9b09, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
