@@ -14948,11 +14948,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1764249078514532441, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: staminaDrainRate
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764249078514532441, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+      propertyPath: staminaRegenRate
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1764249078514532441, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764249078514532441, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+      propertyPath: staminaRegenCooldown
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4954312286211866183, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: m_Name
