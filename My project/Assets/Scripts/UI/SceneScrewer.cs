@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class SceneScrewer : MonoBehaviour
 {
     [SerializeField] private Button startButton;
     [SerializeField] private Button quitButton;
@@ -27,11 +27,11 @@ public class MainMenu : MonoBehaviour
 
     private void OnStartButtonClicked()
     {
-        nextSceneManager.LoadScene("tutorialscene");
+        nextSceneManager.LoadScene("talktestscene");
     }
 
     private void OnQuitButtonClicked()
     {
-        nextSceneManager.QuitGame();
+        Application.Quit();
     }
 }
