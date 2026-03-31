@@ -12,6 +12,11 @@ public class YapManeger : MonoBehaviour
     // Lijst met alle dialoogregels die achter elkaar getoond worden
     private string[] dialogueLines = 
     {
+        "FYI this is a placeholder dialogue, it will be replaced with the actual dialogue later on",
+        "the zombies are cubes rn, but they will be replaced with actual models later on",
+        "rn you only have one weapon attack even though you hold other weapons",
+        "eventually there will be more weapons and more attacks",
+        "here is the actual dialogue:",
         "Arr... ye found me...",
         "Good... good...",
         "Listen close, matey...",
