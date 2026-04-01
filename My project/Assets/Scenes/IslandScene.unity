@@ -1322,6 +1322,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137090766}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &146308484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000010675638318, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+  m_PrefabInstance: {fileID: 287538123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &151759438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2847,6 +2852,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea381ce807c8b16489f35545048c0af5, type: 3}
+--- !u!1001 &287538123
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1000010675638318, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_Name
+      value: BloodStreamEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012961768668, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 286.259
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012961768668, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.288
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012961768668, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 40.591
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012961768668, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012961768668, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012961768668, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.94694734
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012961768668, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.32138887
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012961768668, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -37.494003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012961768668, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012961768668, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199000012492269190, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199000012570322746, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199000013376511174, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199000013497606386, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
 --- !u!1 &292185829
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,7 +3047,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1315382912107577351, guid: d0c8510cfc8edc24fbb0b4c2b0a447c7, type: 3}
       propertyPath: enemiesPerWave
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1315382912107577351, guid: d0c8510cfc8edc24fbb0b4c2b0a447c7, type: 3}
       propertyPath: timeBetweenWaves
@@ -15300,7 +15378,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 960913816080672328, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: shootCooldown
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 960913816080672328, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: playerInventory
@@ -15309,6 +15387,14 @@ PrefabInstance:
     - target: {fileID: 960913816080672328, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: raycastDistance
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 960913816080672328, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+      propertyPath: particleLifetime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 960913816080672328, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+      propertyPath: cooldownIdentifier
+      value: rumbottle
       objectReference: {fileID: 0}
     - target: {fileID: 960913816080672328, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: requiredEquippedPrefab
@@ -15323,16 +15409,28 @@ PrefabInstance:
       value: RumItem
       objectReference: {fileID: 0}
     - target: {fileID: 1380379998540338484, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380379998540338484, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380379998540338484, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380379998540338484, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 282.53
       objectReference: {fileID: 0}
     - target: {fileID: 1380379998540338484, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5699997
+      value: 1.5700073
       objectReference: {fileID: 0}
     - target: {fileID: 1380379998540338484, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.53
+      value: 31.529999
       objectReference: {fileID: 0}
     - target: {fileID: 1380379998540338484, guid: ac44bb5c86c48274a8e4e094a567bd4e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15901,9 +15999,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::swordhit
   sweepRange: 3
-  sweepAngle: 56.2
+  sweepAngle: 89.6
   sweepDamage: 10000
-  attackCooldown: 1
+  attackCooldown: 3
+  cooldownIdentifier: sword
   hitLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -15934,6 +16033,7 @@ MonoBehaviour:
   spreadAngle: 9.6
   pelletDamage: 250
   attackCooldown: 1.5
+  cooldownIdentifier: shotgun
   hitLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -17327,8 +17427,8 @@ MonoBehaviour:
   audioSource: {fileID: 571039018}
   damageClip: {fileID: 8300000, guid: fbb454c9f120e6146921f8bf6cadadd5, type: 3}
   deathClip: {fileID: 0}
-  damageSpawnPrefab: {fileID: 1000010675638318, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
-  deathSpawnPrefab: {fileID: 0}
+  damageSpawnPrefab: {fileID: 146308484}
+  deathSpawnPrefab: {fileID: 146308484}
   spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &3305920991925964781 stripped
 Transform:
@@ -17478,7 +17578,7 @@ MonoBehaviour:
   audioSource: {fileID: 571039018}
   damageClip: {fileID: 8300000, guid: fbb454c9f120e6146921f8bf6cadadd5, type: 3}
   deathClip: {fileID: 0}
-  damageSpawnPrefab: {fileID: 1000010675638318, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
+  damageSpawnPrefab: {fileID: 146308484}
   deathSpawnPrefab: {fileID: 0}
   spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &3305920992067202144 stripped
@@ -17520,8 +17620,8 @@ MonoBehaviour:
   audioSource: {fileID: 571039018}
   damageClip: {fileID: 8300000, guid: fbb454c9f120e6146921f8bf6cadadd5, type: 3}
   deathClip: {fileID: 0}
-  damageSpawnPrefab: {fileID: 1000010675638318, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
-  deathSpawnPrefab: {fileID: 0}
+  damageSpawnPrefab: {fileID: 146308484}
+  deathSpawnPrefab: {fileID: 146308484}
   spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &6072299551932731540
 PrefabInstance:
@@ -17605,9 +17705,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1476724166}
-  - {fileID: 1977912796}
   - {fileID: 2037238442840532226}
   - {fileID: 988615421}
+  - {fileID: 1977912796}
   - {fileID: 1543776653}
   - {fileID: 267232026}
   - {fileID: 778605254}
@@ -17642,3 +17742,4 @@ SceneRoots:
   - {fileID: 1130931966}
   - {fileID: 266236802}
   - {fileID: 1532369759}
+  - {fileID: 287538123}

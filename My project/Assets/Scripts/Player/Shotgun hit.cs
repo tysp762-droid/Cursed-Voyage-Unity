@@ -14,6 +14,7 @@ public class Shotgunhit : MonoBehaviour
     [SerializeField] private float pelletDamage = 20f;
     [Tooltip("Time in seconds between cluster attacks.")]
     [SerializeField] private float attackCooldown = 0.6f;
+    [SerializeField] private string cooldownIdentifier = "";
     [Tooltip("Which layers can be hit by the cluster.")]
     [SerializeField] private LayerMask hitLayerMask = ~0;
     [Tooltip("Inventory component used to check whether the shotgun is equipped.")]
@@ -38,7 +39,7 @@ public class Shotgunhit : MonoBehaviour
     [Tooltip("Draw the cluster area in the editor.")]
     [SerializeField] private bool drawDebugGizmos = true;
 
-    private float lastAttackTime;
+    private string cooldownKey;
 
     private void Awake()
     {
@@ -53,6 +54,8 @@ public class Shotgunhit : MonoBehaviour
 
         if (playerInventory == null)
             Debug.LogWarning("Shotgunhit: No Inventory found in scene. Assign playerInventory or ensure an Inventory component exists.");
+
+        cooldownKey = GetCooldownKey();
 
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
@@ -72,6 +75,21 @@ public class Shotgunhit : MonoBehaviour
         }
 
         AudioSource.PlayClipAtPoint(clip, transform.position);
+    }
+
+    private string GetCooldownKey()
+    {
+        if (!string.IsNullOrWhiteSpace(cooldownIdentifier))
+            return cooldownIdentifier;
+
+        if (playerInventory != null)
+        {
+            ItemsS0 equippedItem = playerInventory.GetEquippedItem();
+            if (equippedItem != null && !string.IsNullOrWhiteSpace(equippedItem.itemName))
+                return $"{GetType().Name}:{equippedItem.itemName}";
+        }
+
+        return $"{GetType().Name}:{gameObject.name.Replace("(Clone)", "").Trim()}";
     }
 
     private void Start()
@@ -142,13 +160,13 @@ public class Shotgunhit : MonoBehaviour
                 return;
             }
 
-            if (Time.time < lastAttackTime + attackCooldown)
+            if (WeaponCooldownManager.IsOnCooldown(cooldownKey, attackCooldown))
             {
                 Debug.Log("Shotgunhit: attack on cooldown.");
                 return;
             }
 
-            lastAttackTime = Time.time;
+            WeaponCooldownManager.RecordUse(cooldownKey);
             Debug.Log("Shotgunhit: cluster fire executed.");
             PlaySound(fireSound);
             FireCluster();
