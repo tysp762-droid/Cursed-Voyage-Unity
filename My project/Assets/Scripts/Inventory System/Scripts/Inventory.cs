@@ -315,6 +315,18 @@ public class Inventory : MonoBehaviour
         currentHandItem.transform.localRotation = Quaternion.identity;
     }
 
+    public ItemsS0 GetEquippedItem()
+    {
+        Slot equippedSlot = hotbarSlots[equippedHotbarIndex];
+        return equippedSlot.HasItem() ? equippedSlot.GetItem() : null;
+    }
+
+    public bool IsEquippedItem(string itemName)
+    {
+        ItemsS0 item = GetEquippedItem();
+        return item != null && string.Equals(item.itemName, itemName, System.StringComparison.OrdinalIgnoreCase);
+    }
+
     private void UpdateItemDescription()
     {
         Slot hoveredSlot = GetHoveredSlot();
