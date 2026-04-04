@@ -14433,6 +14433,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4000010409153280}
     m_Modifications:
+    - target: {fileID: 655671797736579108, guid: 1d3f8a02e845cd245868a0e9732db616, type: 3}
+      propertyPath: m_CookingOptions
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1881747322310129673, guid: 1d3f8a02e845cd245868a0e9732db616, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14476,6 +14480,10 @@ PrefabInstance:
     - target: {fileID: 2141138361418807436, guid: 1d3f8a02e845cd245868a0e9732db616, type: 3}
       propertyPath: m_Name
       value: d
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855993536367224492, guid: 1d3f8a02e845cd245868a0e9732db616, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

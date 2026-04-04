@@ -83,22 +83,40 @@ public class Hit : RayCastSystem
         return $"{GetType().Name}:{gameObject.name.Replace("(Clone)", "").Trim()}";
     }
 
-    private GameObject GetSpawnPrefab()
+    private System.Collections.Generic.IEnumerable<GameObject> GetSpawnPrefabs()
     {
         if (particlePrefab1 != null)
-            return particlePrefab1;
-        return particlePrefab2;
+            yield return particlePrefab1;
+
+        if (particlePrefab2 != null)
+            yield return particlePrefab2;
     }
 
     private void SpawnHitPrefab(Vector3 position, Quaternion rotation)
     {
-        GameObject prefab = GetSpawnPrefab();
-        if (prefab == null)
-            return;
+        bool spawnedAny = false;
 
-        GameObject spawned = Instantiate(prefab, position, rotation);
-        if (particleLifetime > 0f)
-            Destroy(spawned, particleLifetime);
+        foreach (GameObject prefab in GetSpawnPrefabs())
+        {
+            if (prefab == null)
+                continue;
+
+            Quaternion spawnRotation = prefab.transform.rotation;
+            GameObject spawned = Instantiate(prefab, position, spawnRotation);
+            if (particleLifetime > 0f)
+                Destroy(spawned, particleLifetime);
+
+            spawnedAny = true;
+        }
+
+        if (!spawnedAny && particlePrefab1 != null)
+        {
+            GameObject fallbackPrefab = particlePrefab1;
+            Quaternion spawnRotation = fallbackPrefab.transform.rotation;
+            GameObject spawned = Instantiate(fallbackPrefab, position, spawnRotation);
+            if (particleLifetime > 0f)
+                Destroy(spawned, particleLifetime);
+        }
     }
 
     private bool CanAttack()
