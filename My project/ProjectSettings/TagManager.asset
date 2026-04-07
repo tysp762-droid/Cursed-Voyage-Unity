@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - Ground
   - Water
+  - DeathBarrier
   layers:
   - Default
   - TransparentFX

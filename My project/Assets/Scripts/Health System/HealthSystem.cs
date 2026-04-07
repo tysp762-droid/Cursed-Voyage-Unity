@@ -46,4 +46,14 @@ public class HealthSystem : MonoBehaviour
     {
         return (currentHealth / maxHealth) * 100f;
     }
+
+    // Nieuw: detecteer collision met death barrier prefab
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DeathBarrier"))
+        {
+            Debug.Log("HealthSystem: Hit DeathBarrier, dying instantly.");
+            Die();
+        }
+    }
 }

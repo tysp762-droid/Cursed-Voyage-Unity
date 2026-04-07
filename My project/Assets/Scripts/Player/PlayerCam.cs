@@ -5,13 +5,13 @@ public class PlayerCam : MonoBehaviour
     public static PlayerCam instance;
 
     [Header("Sensitivity")]
-    public float sensX;
-    public float sensY;
+    public float sensX = 1f;  // standaardwaarde
+    public float sensY = 1f;  // standaardwaarde
 
     public Transform orientation;
     public Transform modelRotation;
 
-    public bool updatingRotation;
+    public bool updatingRotation = true;  // standaard aan
 
     private float xRotation;
     private float yRotation;
@@ -19,18 +19,24 @@ public class PlayerCam : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        Debug.Log("PlayerCam Awake");
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Debug.Log("PlayerCam Start - Cursor locked and hidden");
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        if(!updatingRotation) return;
+        if (!updatingRotation)
+        {
+            Debug.Log("PlayerCam Update skipped - updatingRotation is false");
+            return;
+        }
+
         float mouseX = Input.GetAxisRaw("Mouse X") * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * sensY;
 
@@ -41,5 +47,15 @@ public class PlayerCam : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
         modelRotation.rotation = orientation.rotation;
+
+        Debug.Log($"PlayerCam Update - sensX: {sensX}, sensY: {sensY}, mouseX: {mouseX}, mouseY: {mouseY}");
+    }
+
+    // Methode om sensitiviteit voor beide assen tegelijk te zetten
+    public void SetSensitivity(float newSens)
+    {
+        sensX = newSens;
+        sensY = newSens;
+        Debug.Log($"PlayerCam SetSensitivity called - new sensitivity: {newSens}");
     }
 }
